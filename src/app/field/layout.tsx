@@ -2,6 +2,7 @@ import Link from "next/link";
 import { requireProfile } from "@/lib/supabase-server";
 import { redirect } from "next/navigation";
 import PositionBeacon from "@/components/PositionBeacon";
+import FieldNav from "@/components/FieldNav";
 export const dynamic = "force-dynamic";
 
 export default async function FieldLayout({ children }: { children: React.ReactNode }) {
@@ -21,12 +22,7 @@ export default async function FieldLayout({ children }: { children: React.ReactN
         </span>
       </header>
       <main style={{ padding: "18px 16px 92px", maxWidth: 560, margin: "0 auto" }}>{children}</main>
-      <nav className="tabbar">
-        <Link href="/field">⌂<span>Home</span></Link>
-        <Link href="/field/jobs">▤<span>Jobs</span></Link>
-        <Link href="/field/hours">◷<span>Hours</span></Link>
-        <Link href="/field/notes">✎<span>Notes</span></Link>
-      </nav>
+      <FieldNav />
     </div>
   );
 }
